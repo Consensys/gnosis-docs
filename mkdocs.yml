@@ -1,0 +1,10 @@
+---
+site_name: Gnosis
+repo_url: https://github.com/Consensys/gnosis
+site_description: Gnosis Documentation
+theme: readthedocs
+extra_css: [extra.css]
+pages:
+- Introduction: 'index.md'
+- Getting Started:
+  - Installation: 'getting_started/installation.md'
