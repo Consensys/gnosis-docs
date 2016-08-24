@@ -1,3 +1,4 @@
+# Event description
 We are gonna create an event description, the most human readable part of the
 prediction market. This will be stored in the Gnosis API.
 
@@ -54,3 +55,63 @@ gnosis.api.createEvent(
   }
 );
 ```
+
+# Event on-chain
+Now that we have stored all the event metadata in the Gnosis API, we are going
+to create the event in the Ethereum Blockchain.
+Take from the event description response, the following information:
+
+* **descriptionHash**: is the SHA3 hash of descriptionJSON field.
+* **kind**: 'discrete' or 'ranged'
+* **outcomeCount**: 2 for ranged events and outcomes.length for discrete events
+* **feeSignatures**: an array of one element. response.data.offChainOracles[oracleAddress].fee
+
+We need two more parameters:
+
+* **tokenAddress**: is the token contract address (e.g ETH '0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2')
+* **resolverAddress**: is the oracle contract address used to resolve the event. (e.g UltimateOracle '0x529c4cb814029b8bb32acb516ea3a4b07fdae350')
+
+```js
+const eventOnChain = {
+  kind: "discrete",
+  outcomeCount: 2,  
+  tokenAddress: '0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2',
+  resolverAddress: '0x529c4cb814029b8bb32acb516ea3a4b07fdae350'
+};
+
+const feeSignatures = [
+  {
+    fee: 0,
+    r: "76313132358411676894858570476288595214390235035601740236150786169812569527480",
+    s: "6893748021101910216468924035673437049986881004666946295153989969887086026472",
+    v: 27
+  }
+];
+
+gnosis.contracts.events.createOffChainEvent(
+  eventOnChain,
+  "0xcecfa7bd5a15da69166495b44386c35e1a1d70381476192e379666a2fb4d53d2", // descriptionHash
+  feeSignatures,
+  config,
+  function(e, receipt){
+      console.log(receipt); // Transaction receipt, event was created and transactions was mined
+  }
+)
+.then(
+  function(createEvent){
+    /*
+    ** Create event transaction is well formed but it wasn't mined yet
+    ** createEvent.simulatedResult == true
+    ** createEvent.txhash == transaction hash    
+    */
+  },
+  function(e){
+    // There was an error
+  }
+)
+```
+
+As you have noticed, there are to ways to get response of the creation:
+
+1. **Callback**: It's called in last place, after the transaction is mined.
+2. **Promise**: It's faster, but we have not certainty when it will be in the blockchain.
