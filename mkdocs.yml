@@ -9,3 +9,4 @@ pages:
 - Getting Started:
   - Installation: 'getting_started/installation.md'
   - Instance: 'getting_started/instance.md'
+  - New event description: 'getting_started/newDescription.md'
