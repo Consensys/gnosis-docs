@@ -101,7 +101,7 @@ gnosis.contracts.events.createOffChainEvent(
   function(createEvent){
     /*
     ** Create event transaction is well formed but it wasn't mined yet
-    ** createEvent.simulatedResult == true
+    ** createEvent.simulatedResult == eventHash
     ** createEvent.txhash == transaction hash    
     */
   },
@@ -115,3 +115,22 @@ As you have noticed, there are to ways to get response of the creation:
 
 1. **Callback**: It's called in last place, after the transaction is mined.
 2. **Promise**: It's faster, but we have not certainty when it will be in the blockchain.
+
+# Market
+This is the final step, we open the market with an initial funding of tokens and
+set the market fee.
+This is the info needed:
+
+1. eventHash: it's hash that identies the event. We already have it, is the
+  value of createEvent.simulatedResult.
+2. marketFee: percentage that the investor takes of trading actions.
+Values between 0-50%, represented as 0-1000000.
+3. initialFunding: amount of tokens the investor put into the market.
+4. marketAddress: market contract address (e.g Markets.sol '0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847')
+
+```js
+const market = {
+  marketFee: new BigNumber('0'),
+  initialFunding: new BigNumber('1e18') // 10 ETH  
+}
+```
