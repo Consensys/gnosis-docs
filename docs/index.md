@@ -2,7 +2,5 @@
 
 [![Slack Status](http://slack.gnosis.pm/badge.svg)](http://slack.gnosis.pm)
 
-Gnosis is...:
-
-* Feature 1
-* Feature 2...
+Based on the next generation crypto currency network Ethereum.
+Make complex predictions with an easy to use prediction market.

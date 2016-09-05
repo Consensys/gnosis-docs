@@ -121,16 +121,36 @@ This is the final step, we open the market with an initial funding of tokens and
 set the market fee.
 This is the info needed:
 
-1. eventHash: it's hash that identies the event. We already have it, is the
+1. **eventHash**: it's hash that identies the event. We already have it, is the
   value of createEvent.simulatedResult.
-2. marketFee: percentage that the investor takes of trading actions.
-Values between 0-50%, represented as 0-1000000.
-3. initialFunding: amount of tokens the investor put into the market.
-4. marketAddress: market contract address (e.g Markets.sol '0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847')
+2. **marketFee**: percentage that the investor takes of trading actions.
+Values between **0-50%**, represented as 0-1000000.
+3. **initialFunding**: amount of tokens the investor put into the market.
+4. **marketAddress**: market contract address (e.g Markets.sol '0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847')
+5. **makerAddress**: market maker contract address (e.g LMSR.sol '0x8695e5e79dab06fbbb05f445316fa4edb0da30f0')
 
 ```js
 const market = {
   marketFee: new BigNumber('0'),
-  initialFunding: new BigNumber('1e18') // 10 ETH  
+  initialFunding: new BigNumber('1e18'), // 10 ETH  
+  makerAddress: '0x8695e5e79dab06fbbb05f445316fa4edb0da30f0' // LMSR address in main net  
 }
+```
+
+```js
+gnosis.contracts.market.createMarket(
+  market,
+  eventHash, // createEvent.simulatedResult
+  config,
+  '0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847', // Market.sol contract
+  function(e, receipt){
+    // Called when market is created and transaction mined
+  }
+)
+.then(
+  function(createMarket){
+    // createMarket.simulatedResult: marketHash
+    // createMarket.txhash: Transaction hash
+  }
+)
 ```
