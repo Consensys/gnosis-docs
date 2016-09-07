@@ -11,8 +11,7 @@ gnosis.config.initialize(
   }
 )
 ```
-
-The options object has the following structure:
+## Options structure
 ```js
 {
   addresses: {
@@ -133,4 +132,33 @@ The options object has the following structure:
   gnosisServiceURL: 'https://beta.gnosis.pm/api/',
   ethereumNodeURL: 'https://morden.infura.io'
 }
+```
+
+### Metamask/Mist integration
+Metamask and mist injects a custom implementation of web3 in the browser in
+`window.web3`.
+You can check what wallet is using your user and pass it to the config:
+```js
+var customWeb3 = null;
+if(window.web3){
+  customWeb3 = new Web3(window.web3.currentProvider);
+  if(typeof mist !== 'undefined') {
+    // Is mist
+  }
+  else if(
+    window.web3.currentProvider &&
+    window.web3.currentProvider.constructor &&
+    window.web3.currentProvider.constructor.name == "MetamaskInpageProvider"
+  ){
+    // Is metamask
+  }
+  else{
+    // Is another wallet implementation
+  }
+}
+```
+
+Now you have an instance of web3 that can be passed to the config:
+```js
+config.web3 = customWeb3;
 ```
