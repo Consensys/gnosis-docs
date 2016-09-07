@@ -10,3 +10,4 @@ pages:
   - Installation: 'getting_started/installation.md'
   - Instance: 'getting_started/instance.md'
   - New prediction market: 'getting_started/newPredictionMarket.md'
+  - Get events: 'getting_started/getEvents.md'

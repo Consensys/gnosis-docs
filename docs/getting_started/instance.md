@@ -50,8 +50,7 @@ The options object has the following structure:
     investor: null,
   },
 
-  eventDescriptionFilters: {
-    // resolutionDate: new Date(new Date().getTime() + 3600000*24*60),
+  eventDescriptionFilters: {    
     oracleAddresses: null,
     includeWhitelistedOracles: false,
     pageSize: 50// number of events returned by API for each page
@@ -74,4 +73,64 @@ The options object has the following structure:
   transactionsLoop: true, // transactions receipt loop
   requestBlockNumberTimeout: 5
 };
+```
+
+# Main chain configuration
+```js
+{  
+  addresses: {
+    defaultMarket: '0x6ca7f214ab2ddbb9a8e1a1e2c8550e3164e9dba5',
+    defaultMarketMaker: '0x8695e5e79dab06fbbb05f445316fa4edb0da30f0',
+    etherToken: '0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2',
+    events: '0x5aae5c59d642e5fd45b427df6ed478b49d55fefd',
+    ultimateOracle: '0x529c4cb814029b8bb32acb516ea3a4b07fdae350',
+    lmsrMarketMaker: '0x8695e5e79dab06fbbb05f445316fa4edb0da30f0'
+  },
+  addressFilters: {
+    oracle: '0x529c4cb814029b8bb32acb516ea3a4b07fdae350',
+    investor: '0x0',
+  },
+  eventDescriptionFilters: {
+    oracleAddresses: null,
+    includeWhitelistedOracles: false,
+    pageSize: 10
+  },
+  addressFiltersPostLoad: {
+    marketMakers: ['0x8695e5e79dab06fbbb05f445316fa4edb0da30f0'],
+    oracles: ['0x529c4cb814029b8bb32acb516ea3a4b07fdae350'],
+    tokens: ['0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2'],
+  },
+  gnosisServiceURL: 'https://www.gnosis.pm/api/',
+  ethereumNodeURL: 'https://mainnet.infura.io'
+}
+```
+
+# Morden configuration
+```js
+{
+  addresses: {
+    defaultMarket: '0x3b1da4a1ea5ccf9ec05eeb2318abcd7d4fe07455',
+    defaultMarketMaker: '0xd3a0f8d4647342ce5c92ba989730308d69c6ca27',
+    etherToken: '0x2cdd9fe0012e973b1bc0436e67475a890e3a717a',
+    events: '0xcf18b7a386a015c1ac317f6c2368003997bb6a0c',
+    ultimateOracle: '0xecf35d9475353c79f7a756c50bbe060efe0b545f',
+    lmsrMarketMaker: '0xd3a0f8d4647342ce5c92ba989730308d69c6ca27'
+  },
+  addressFilters: {
+    oracle: '0xecf35d9475353c79f7a756c50bbe060efe0b545f',
+    investor: '0x0',
+  },
+  eventDescriptionFilters: {
+    oracleAddresses: null,
+    includeWhitelistedOracles: false,
+    pageSize: 10
+  },
+  addressFiltersPostLoad: {
+    marketMakers: ['0xd3a0f8d4647342ce5c92ba989730308d69c6ca27'],
+    oracles: ['0xecf35d9475353c79f7a756c50bbe060efe0b545f'],
+    tokens: ['0x2cdd9fe0012e973b1bc0436e67475a890e3a717a'],
+  },
+  gnosisServiceURL: 'https://beta.gnosis.pm/api/',
+  ethereumNodeURL: 'https://morden.infura.io'
+}
 ```
