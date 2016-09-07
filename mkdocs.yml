@@ -13,3 +13,7 @@ pages:
   - Get events: 'getting_started/getEvents.md'
   - State: 'getting_started/state.md'
   - Trading: 'getting_started/trading.md'
+- Reference:
+  - Introduction: 'api_reference/introduction.md'
+  - REST API: 'api_reference/api.md'
+  - Event description: 'api_reference/eventDescription.md'

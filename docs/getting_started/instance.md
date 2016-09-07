@@ -160,5 +160,10 @@ if(window.web3){
 
 Now you have an instance of web3 that can be passed to the config:
 ```js
-config.web3 = customWeb3;
+const config = {
+  ...
+  config.web3 : customWeb3
+  ...
+}
+
 ```
