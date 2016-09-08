@@ -21,4 +21,4 @@ pages:
     - Index: 'api_reference/contracts/index.md'
     - Events: 'api_reference/contracts/events.md'
   - Event description: 'api_reference/eventDescription.md'
-  - Event-on-chain: 'api_reference/event.md'
+  - Event-on-chain: 'api_reference/Event.md'
