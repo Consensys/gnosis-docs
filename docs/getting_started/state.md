@@ -20,7 +20,7 @@ gnosis.state.buildState(
 )
 
 ```
-### State properties:
+### State properties
 * `blockNumber`: actual blockNumber of state
 * `eventDescriptions`: object map of event descriptions
 * `events`: object map of events-on-chain
