@@ -9,6 +9,7 @@ pages:
 - Getting Started:
   - Installation: 'getting_started/installation.md'
   - Instance/Config: 'getting_started/instance.md'
+  - Transactions and calls: 'getting_started/transactionsAndCalls.md'
   - New prediction market: 'getting_started/newPredictionMarket.md'
   - Get events: 'getting_started/getEvents.md'
   - State: 'getting_started/state.md'

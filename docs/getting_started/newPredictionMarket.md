@@ -68,8 +68,8 @@ Take from the event description response, the following information:
 
 We need two more parameters:
 
-* **tokenAddress**: is the token contract address (e.g ETH '0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2')
-* **resolverAddress**: is the oracle contract address used to resolve the event. (e.g UltimateOracle '0x529c4cb814029b8bb32acb516ea3a4b07fdae350')
+* **tokenAddress**: is the token contract address (e.g ETH `0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2`)
+* **resolverAddress**: is the oracle contract address used to resolve the event. (e.g UltimateOracle `0x529c4cb814029b8bb32acb516ea3a4b07fdae350`)
 
 ```js
 const eventOnChain = {
@@ -126,8 +126,8 @@ This is the info needed:
 2. **marketFee**: percentage that the investor takes of trading actions.
 Values between **0-50%**, represented as 0-1000000.
 3. **initialFunding**: amount of tokens the investor put into the market.
-4. **marketAddress**: market contract address (e.g Markets.sol '0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847')
-5. **makerAddress**: market maker contract address (e.g LMSR.sol '0x8695e5e79dab06fbbb05f445316fa4edb0da30f0')
+4. **marketAddress**: market contract address (e.g Markets.sol `0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847`)
+5. **makerAddress**: market maker contract address (e.g LMSR.sol `0x8695e5e79dab06fbbb05f445316fa4edb0da30f0`)
 
 ```js
 const market = {
