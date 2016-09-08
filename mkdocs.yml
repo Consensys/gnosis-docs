@@ -17,4 +17,8 @@ pages:
 - Reference:
   - Introduction: 'api_reference/introduction.md'
   - REST API: 'api_reference/api.md'
+  - Contracts:
+    - Index: 'api_reference/contracts/index.md'
+    - Events: 'api_reference/contracts/events.md'
   - Event description: 'api_reference/eventDescription.md'
+  - Event-on-chain: 'api_reference/event.md'
