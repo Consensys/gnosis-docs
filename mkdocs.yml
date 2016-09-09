@@ -21,5 +21,6 @@ pages:
     - Index: 'reference/contracts/index.md'
     - Events: 'reference/contracts/events.md'
     - Market: 'reference/contracts/market.md'
+    - Market maker: 'reference/contracts/market-maker.md'
   - Event description: 'reference/event-description.md'
   - Event-on-chain: 'reference/event.md'

@@ -1,3 +1,9 @@
+# Npm
+
+```
+npm install gnosisjs
+```
+
 # Build
 
 ```
