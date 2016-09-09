@@ -3,7 +3,7 @@ You have two main ways to retrieve event descriptions from API:
 ## api.getEvents
 `api.getEvents(config, filters)`
 
-* `config`: Config object explained in [instance](/getting_started/instance)
+* `config`: Config object explained in [instance](/getting-started/instance)
 * `filters`: (optional) Object of filters
     * creator_address: `string`, ethereum address of the description creator.
     * oracle_addresses: `string`, ethereum addresses comma separated of off-chain-oracles.
@@ -34,8 +34,8 @@ You have two main ways to retrieve event descriptions from API:
 ## state.updateEventDescriptions
 `state.updateEventDescriptions(config, filters)`
 
-This function uses the [state](/getting_started/state), default filters
-are declared at the [config](/getting_started/instance) as:
+This function uses the [state](/getting-started/state), default filters
+are declared at the [config](/getting-started/instance) as:
 ```js
 const eventDescriptionFilters = {    
   oracleAddresses: "0x65039084cc6f4773291a6ed7dcf5bc3a2e894ff3,0x5dcd834cf776f47f138943e3466440009a2f2b00",

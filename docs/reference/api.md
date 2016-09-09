@@ -2,7 +2,7 @@
 `createEvent(event, oracleAddress, config)`
 
   * event: `object`
-  > Discrete or Ranged see [Event Description](/api_reference/eventDescription)
+  > Discrete or Ranged see [Event Description](/reference/eventDescription)
 
   * oracleAddress: `string`
   > Ethereum address used to sign the event description. You must own this address
