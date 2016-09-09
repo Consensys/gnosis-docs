@@ -23,5 +23,6 @@ pages:
     - Market: 'reference/contracts/market.md'
     - Market maker: 'reference/contracts/market-maker.md'
     - Oracle: 'reference/contracts/oracle.md'
+    - Ultimate Oracle: 'reference/contracts/ultimate-oracle.md'
   - Event description: 'reference/event-description.md'
   - Event-on-chain: 'reference/event.md'
