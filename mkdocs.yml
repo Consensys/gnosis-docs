@@ -22,5 +22,6 @@ pages:
     - Events: 'reference/contracts/events.md'
     - Market: 'reference/contracts/market.md'
     - Market maker: 'reference/contracts/market-maker.md'
+    - Oracle: 'reference/contracts/oracle.md'
   - Event description: 'reference/event-description.md'
   - Event-on-chain: 'reference/event.md'
