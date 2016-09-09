@@ -88,31 +88,31 @@ const state = gnosis.state.get(config);
 * filteredMarketHashes: `array or marketHashes` (optional)   
 > array of market hashes to update
 
-# updateTokens
+# state.updateTokens
 **Returns a Promise with all token balance, symbol, name and decimals for each tokenAddress**  
 `state.updateTokens(tokenAddresses, config)`
 
 * tokenAddresses: `array of tokenAddresses`
 * config: `object`
 
-# updateEventTokenShares
+# state.updateEventTokenShares
 **Returns a Promise with all event shares balances**   
-`updateEventTokenShares(forAddress, eventHashes, config)`
+`state.updateEventTokenShares(forAddress, eventHashes, config)`
 
 * forAddress: `string`
 > owner of the shares    
 * eventHashes: `array of eventHashes`   
 * config: `config`
 
-# updateBlocknumber
+# state.updateBlocknumber
 **Updates state block number**    
-`updateBlocknumber(config)`
+`state.updateBlocknumber(config)`
 
 * config: `object`
 
-# updateHistory
+# state.updateHistory
 **Returns a Promise with an array of shares distributions over time**    
-`updateHistory(marketAddress, marketHash, fromBlock, toBlock, sampleCount, config)`
+`state.updateHistory(marketAddress, marketHash, fromBlock, toBlock, sampleCount, config)`
 
 * marketAddress: `string`
 * marketHash: `string`
@@ -122,8 +122,8 @@ const state = gnosis.state.get(config);
 > number of samples requested    
 * config: `object`
 
-# updateBaseFee
+# state.updateBaseFee
 **Returns a Promise with the current base fee**    
-`updateBaseFee(config)`
+`state.updateBaseFee(config)`
 
 * config: `object`
