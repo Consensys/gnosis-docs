@@ -25,5 +25,6 @@ pages:
     - oracle: 'reference/contracts/oracle.md'
     - ultimateOracle: 'reference/contracts/ultimate-oracle.md'
     - abstractToken: 'reference/contracts/abstract-token.md'
+    - etherToken: 'reference/contracts/ether-token.md'
   - Event description: 'reference/event-description.md'
   - Event-on-chain: 'reference/event.md'
