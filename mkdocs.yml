@@ -14,6 +14,7 @@ pages:
   - Get events: 'getting-started/get-events.md'
   - State: 'getting-started/state.md'
   - Trading: 'getting-started/trading.md'
+  - Resolve and Redeem: 'getting-started/resolve-and-redeem.md'
 - Reference:
   - Introduction: 'reference/introduction.md'
   - REST API: 'reference/api.md'
