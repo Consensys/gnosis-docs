@@ -21,7 +21,7 @@ a market fee and the related Market Maker contract **
 
 # closeMarket
 ** Close the market, returning the initial funding to the investor and the
-market fees. Can only be done by the investor.**   
+market fees. Can only be done by the investor.**
 `closeMarket(marketHash, config, [marketAddress], callback)`
 
 * marketHash: `string`
@@ -31,18 +31,20 @@ market fees. Can only be done by the investor.**
 
 # getMarketHashes
 ** Get raw response from Market contract for get market hashes of related events. **
-`getMarketHashes(eventHashes, config, [marketAddress], callback)`
+`getMarketHashes(eventHashes, investors, config, [marketAddress], callback)`
 
 * eventHashes: `array of eventHashes`
+* investors: `array of addresses`
 * config: `object`
 * marketAddress: `string`
 * callback: `function`
 
 # getMarketHashesProcessed
 ** Get related array of market hashes for given event hashes. **
-`getMarketHashesProcessed(eventHashes, config, [marketAddress])`
+`getMarketHashesProcessed(eventHashes, investors, config, [marketAddress])`
 
 * eventHashes: `array of eventHashes`
+* investors: `array of addresses`
 * config: `object`
 * marketAddress: `string`
 
@@ -73,7 +75,7 @@ market fees. Can only be done by the investor.**
 * marketAddress: `string`
 
 # withdrawFees
-** Withdraws market fees from market contract to investor address **   
+** Withdraws market fees from market contract to investor address **
 `withdrawFees(marketHash, config, [marketAddress], callback)`
 
 * marketHash: `string`
@@ -82,7 +84,7 @@ market fees. Can only be done by the investor.**
 * callback: `function`
 
 # getShareDistribution
-** Get share distribution of market for a given blockNumber **   
+** Get share distribution of market for a given blockNumber **
 `getShareDistribution(marketHash, blockNumber, config, [marketAddress], callback)`
 
 * marketHash: `string`
@@ -92,7 +94,7 @@ market fees. Can only be done by the investor.**
 * callback: `function`
 
 # getShareDistributionWithTimestamp
-** Get share distribution with timestamp of market for a given blockNumber **   
+** Get share distribution with timestamp of market for a given blockNumber **
 `getShareDistributionWithTimestamp(marketHash, blockNumber, config, [marketAddress], callback)`
 
 * marketHash: `string`
@@ -102,7 +104,7 @@ market fees. Can only be done by the investor.**
 * callback: `function`
 
 # buyShares
-** Buy outcome shares for a given market with a max allowed price for buying **   
+** Buy outcome shares for a given market with a max allowed price for buying **
 `buyShares(marketHash, outcomeIndex, numShares, maxTotalPrice, config, [marketAddress], callback)`
 
 * marketHash: `string`
@@ -130,7 +132,7 @@ market fees. Can only be done by the investor.**
 * callback: `function`
 
 # calcMarketFee
-** Get tokens fee for a given amount of tokens. Returns a promise. **  
+** Get tokens fee for a given amount of tokens. Returns a promise. **
 `calcMarketFee(marketHash, amount, config, marketAddress)`
 
 * marketHash: `string`
@@ -139,7 +141,7 @@ market fees. Can only be done by the investor.**
 * marketAddress: `string`
 
 # shortSellShares
-** Buys all outcomes and sells all outcomes unless the one selected with an expected price for selling outcomes. **    
+** Buys all outcomes and sells all outcomes unless the one selected with an expected price for selling outcomes. **
 `shortSellShares(marketHash, outcomeIndex, numShares, moneyToEarn, config, [marketAddress], callback)`
 
 * marketHash: `string`

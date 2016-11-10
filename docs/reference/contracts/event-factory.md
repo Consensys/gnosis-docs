@@ -13,8 +13,8 @@ Buy numberShares of all outcomes the event-on-chain has. In ranged events we buy
 
 * callback: `function`
 
-# redeemAllOutcomes
-`redeemAllOutcomes(eventHash, numShares, config, callback)`
+# sellAllOutcomes
+`sellAllOutcomes(eventHash, numShares, config, callback)`
 
 Sell numberShares of all outcome. You need to have the number of shares for each
 outcome.
@@ -67,24 +67,26 @@ Creates the event-on-chain using the Ultimate Oracle
 * callback: `function`
 
 # getEventHashes
-`getEventHashes(descriptionHashes, config, callback)`
+`getEventHashes(descriptionHashes, creators, config, callback)`
 
 Returns raw response from events contract function
 
 * descriptionHashes: `array of descriptionHashes`
+* creators: `array of addresses`
 * config: `object`
 * callback: `function`
 
 # getEventHashesProcessed
-`getEventHashesProcessed(descriptionHashes, config)`
+`getEventHashesProcessed(descriptionHashes, creators, config)`
 
 Returns an array of event hashes through a Promise.
 
 * descriptionHashes: `array of descriptionHashes`
+* creators: `array of addresses`
 * config: `object`
 
 # getEvents
-`getEvents(eventHashes, resolverAddress, tokenAddress, creatorAddress, config, callback)`
+`getEvents(eventHashes, resolverAddress, tokenAddress, config, callback)`
 
 Returns raw response from events contract function
 
@@ -97,16 +99,12 @@ Returns raw response from events contract function
 
 > Token contract addrress used as filter
 
-* creatorAddress: `string|null`
-
-> Event creator account address  used as filter
-
 * config: `object`
 
 * callback: `function`
 
 # getEventsProcessed
-`getEventsProcessed(eventHashes, resolverAddress, tokenAddress, creatorAddress, config)`
+`getEventsProcessed(eventHashes, resolverAddress, tokenAddress, config)`
 
 Returns an object map of events through a Promise.
 
@@ -118,10 +116,6 @@ Returns an object map of events through a Promise.
 * tokenAddress: `string|null`
 
 > Token contract addrress used as filter
-
-* creatorAddress: `string|null`
-
-> Event creator account address  used as filter
 
 * config: `object`
 

@@ -11,7 +11,8 @@ There are two types of events:
   sourceURL: 'url string',
   resolutionDate: 'datetime ISO',
   outcomes: ['string'],
-  fee: 'bigNumber' (optional) // oracle fee charged for resolving the event
+  fee: 'bigNumber', (optional) // oracle fee charged for resolving the event
+  feeToken: 'address'
 }
 ```
 
@@ -25,6 +26,7 @@ There are two types of events:
   resolutionDate: 'datetime ISO',
   unit: 'string', // domain unit for event outcome (e.g ETH, USD, EUR)
   decimals: 'integer' // number of representative decimals for event outcome
-  fee: 'bigNumber' (optional) // oracle fee charged for resolving the event
+  fee: 'bigNumber', (optional) // oracle fee charged for resolving the event
+  feeToken: 'address'
 }
 ```

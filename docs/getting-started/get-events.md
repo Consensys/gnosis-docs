@@ -12,6 +12,8 @@ You have two main ways to retrieve event descriptions from API:
     * include_whitelisted_oracles: `True|true|1`, includes whitelisted oracle's events.
     * page: `integer`
     * page_size: `integer`
+    * title: `string`, contained in the description title.
+    * tags: `string`, list of description tags separated by commas.
 
 ```js
     gnosis.api.getEvents(
@@ -37,13 +39,15 @@ You have two main ways to retrieve event descriptions from API:
 This function uses the [state](/getting-started/state), default filters
 are declared at the [config](/getting-started/instance) as:
 ```js
-const eventDescriptionFilters = {    
+const eventDescriptionFilters = {
   oracleAddresses: "0x65039084cc6f4773291a6ed7dcf5bc3a2e894ff3,0x5dcd834cf776f47f138943e3466440009a2f2b00",
   includeWhitelistedOracles: true,
   pageSize: 50,// number of events returned by API for each page
   page: 1,
   creatorAddress: "0x5dcd834cf776f47f138943e3466440009a2f2b00",
-  descriptionHashes: null
+  descriptionHashes: null,
+  title: null,
+  tags: null
 }
 ```
 And are merged with the filters that we pass as second parameter.
@@ -55,5 +59,5 @@ gnosis.state.updateEventDescriptions(
 then(
   function(response),
   function(error)
-);  
+);
 ```

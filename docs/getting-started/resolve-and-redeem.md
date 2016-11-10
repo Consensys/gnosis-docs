@@ -20,10 +20,10 @@ gnosis.contracts.ultimateOracle.setOutcome(
 period is over (12h if there are no challenges, 24h if there are).
 
 
-After event is resolved, users can [redeem their winning outcomes](/reference/contracts/events) if they have shares
+After event is resolved, users can [redeem their winning outcomes](/reference/contracts/event-factory) if they have shares
 for the winning outcome.
 ```js
-gnosis.contracts.events.redeemWinnings(
+gnosis.contracts.eventFactory.redeemWinnings(
   eventHash,
   config,
   function(e, receipt){

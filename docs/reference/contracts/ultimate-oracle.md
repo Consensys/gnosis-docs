@@ -8,13 +8,12 @@
 * callback: `function`
 
 # challengeWinningOutcome
-**Sends a challenge for a given event and outcome sending a challenge amount of ether. Returns a simulated transaction promise.**
-`challengeWinningOutcome(descriptionHash, outcome, challengeAmount, config, callback)`
+**Challenges an oracle outcome for a given event sending the challenge amount of ether (100ETH). Returns a simulated transaction promise.**
+`challengeOracle(descriptionHash, oracle, outcome, config, callback)`
 
 * descriptionHash: `string|bigNumber`
+* oracle: `address`
 * outcome: `bigNumber`
-* challengeAmount: `bigNumber`    
-> Ether amount sending for challenge    
 * config: `object`
 * callback: `function`
 
@@ -43,7 +42,7 @@
 * descriptionHash: `string|bigNumber`
 * outcome: `bigNumber`
 * voteValue: `bigNumber`
-> amount of ether send to the contract. Must be higher than actual front running challenge.    
+> amount of ether send to the contract. Must be higher than actual front running challenge.
 * config: `object`
 * callback: `function`
 
@@ -55,9 +54,9 @@
 * config: `object`
 * callback: `function`
 
-# withdraw
-**Withdraw user challenge shares to owner account. Returns a simulated transaction promise.**
-`withdraw(descriptionHash, config, callback)`
+# redeemWinnings
+**Redeem user challenge shares to owner account. Returns a simulated transaction promise.**
+`redeemWinnings(descriptionHash, config, callback)`
 
 * descriptionHashes: `string|bigNumber`
 * config: `object`
@@ -71,7 +70,7 @@
 * descriptionHash: `string|bigNumber`
 * outcomeIndex: `bigNumber`
 * oracleAddress: `string`
-> account signing result, must be in the wallet.    
+> account signing result, must be in the wallet.
 * config: `object`
 * callback: `function`
 

@@ -11,10 +11,13 @@
 
 
 # subscribeOracleToEvent
-`subscribeOracleToEvent(givenFee, descriptionHash, oracleAddress, email, config)`
+`subscribeOracleToEvent(fee, feeToken, descriptionHash, oracleAddress, email, config)`
 
-* givenFee: `bigNumber`.
+* fee: `bigNumber`.
 > Fee oracle charges for resolving the event.
+
+* feeToken: `address`.
+> Fee token contract address.
 
 * descriptionHash: `string`
 > DescriptionHash that identifies the event.
@@ -100,7 +103,7 @@ const discreteRevision = {
   description: 'string',
   sourceURL: 'url',
   resolutionDate: 'datetime',
-  outcomes: ['string'],  
+  outcomes: ['string'],
   nonce: 'integer', // Incremental index, 0 for first revision
   descriptionHash: 'string'
 }

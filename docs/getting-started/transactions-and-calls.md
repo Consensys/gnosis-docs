@@ -11,7 +11,7 @@ We have two different response from a function that sends a transaction:
 2. **Callback:** The callback function called after the transaction is mined. We get the transaction result.
 
 ```js
-gnosis.contracts.market.createMarket(
+gnosis.contracts.marketFactory.createMarket(
   ...
   function(e, receipt){
     // Called when market is created and transaction mined

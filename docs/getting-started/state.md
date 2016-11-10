@@ -10,10 +10,12 @@
               state filters
 
 # state.buildState
-** Builds the state retrieving event descriptions, events, markets, baseFee, eventShares and token balances.**   
+** Builds the state retrieving event descriptions, events, markets, baseFee, eventShares and token balances.**
 `state.buildState(config, tokenAddresses, marketAddresses)`
 
 * config: `object`
+* creators: `array`, addresses of event creators
+* investors: `array`, addresses of market investors
 * tokenAddresses: `array`, token contracts addresses to get balances, symbol, name and decimals
 * marketAddresses: `array`, market contracts addresses where get market objects.
 
@@ -21,11 +23,13 @@
 // Example for Morden network
 gnosis.state.buildState(
   mordenConfig,
-  ['0x2cdd9fe0012e973b1bc0436e67475a890e3a717a'], // Ether token address
-  ['0x3b1da4a1ea5ccf9ec05eeb2318abcd7d4fe07455'] // Markets.sol address
+  [mordenConfig.account], // Creators
+  [mordenConfig.account], // Investors
+  [mordenConfig.addresses.etherToken], // Tokens addresses
+  [mordenConfig.addresses.defaultMarketFactory] // Markets addresses
 )
 .then(
-  function(state){    
+  function(state){
   }
 )
 
@@ -34,22 +38,13 @@ const state = gnosis.state.get(config);
 ```
 
 # state.get
-**Returns current state.**    
+**Returns current state.**
 `state.get(config)`
 
 * config: `object`
 
-# state.updateState
-**Update state market, shares and tokens properties with given filters**    
-`updateState(config, filteredMarketHashes, tokenAddresses, marketAddresses)`
-
-* config: `object`
-* filteredMarketHashes: `array of marketHashes`
-* tokenAddresses: `array of tokenAddresses`
-* marketAddresses: `array of marketAddresses`
-
 # state.updateEventDescriptions
-**Returns a Promise with all event descriptions that match filters. Event descriptions are included in the state container too.**   
+**Returns a Promise with all event descriptions that match filters. Event descriptions are included in the state container too.**
 `state.updateEventDescriptions(config, filters)`
 
 * config: `object`
@@ -61,57 +56,59 @@ const state = gnosis.state.get(config);
 > * include_whitelisted_oracles: `True|true|1`, includes whitelisted oracle's events.
 > * page: `integer`
 > * page_size: `integer`
+> * title: `string`
+> * tags: `string`, list of tag names separated by commas.
 
 # state.updateEvents
-**Returns a Promise with all Events-on-chain that match address filters. Events-on-chain are included in the state container too.**   
-`state.updateEvents(config, resolverAddress, tokenAddress, creatorAddress, filteredEventHashes)`
+**Returns a Promise with all Events-on-chain that match address filters. Events-on-chain are included in the state container too.**
+`state.updateEvents(config, creators, resolverAddress, tokenAddress, filteredEventHashes)`
 
 * config: `object`
+* creators: `array of addresses`
+> ethereum addresses of event creators
 * resolverAddress: `string` (optional)
-> filter events resolved by oracle contract address    
+> filter events resolved by oracle contract address
 * tokenAddress: `string` (optional)
-> filter events by token contract address    
-* creatorAddress: `string` (optional)
-> filter events created by oracle account address     
+> filter events by token contract address
 * filteredEventHashes: `array of eventHashes` (optional)
 > array of event hashes to update
 
 # state.updateMarkets
-**Returns a Promise with all markets that match address filters. Markets are included in the state container too.**   
-`state.updateMarkets(config, marketContractAddress, investorAddress, filteredMarketHashes)`
+**Returns a Promise with all markets that match address filters. Markets are included in the state container too.**
+`state.updateMarkets(config, investors, marketContractAddress, filteredMarketHashes)`
 
 * config: `object`
-* marketContractAddress: `string` (optional)   
-> market contract address    
-* investorAddress: `string` (optional)
-> investor account address   
-* filteredMarketHashes: `array or marketHashes` (optional)   
+* investors: `array of addresses` (optional)
+> ethereum addresses of market investors
+* marketContractAddress: `string` (optional)
+> market contract address
+* filteredMarketHashes: `array or marketHashes` (optional)
 > array of market hashes to update
 
 # state.updateTokens
-**Returns a Promise with all token balance, symbol, name and decimals for each tokenAddress**  
+**Returns a Promise with all token balance, symbol, name and decimals for each tokenAddress**
 `state.updateTokens(tokenAddresses, config)`
 
 * tokenAddresses: `array of tokenAddresses`
 * config: `object`
 
 # state.updateEventTokenShares
-**Returns a Promise with all event shares balances**   
+**Returns a Promise with all event shares balances**
 `state.updateEventTokenShares(forAddress, eventHashes, config)`
 
 * forAddress: `string`
-> owner of the shares    
-* eventHashes: `array of eventHashes`   
+> owner of the shares
+* eventHashes: `array of eventHashes`
 * config: `config`
 
 # state.updateBlocknumber
-**Updates state block number**    
+**Updates state block number**
 `state.updateBlocknumber(config)`
 
 * config: `object`
 
 # state.updateHistory
-**Returns a Promise with an array of shares distributions over time**    
+**Returns a Promise with an array of shares distributions over time**
 `state.updateHistory(marketAddress, marketHash, fromBlock, toBlock, sampleCount, config)`
 
 * marketAddress: `string`
@@ -119,11 +116,11 @@ const state = gnosis.state.get(config);
 * fromBlock: `Hex string`
 * toBlock: `Hex string`
 * sampleCount: `integer`
-> number of samples requested    
+> number of samples requested
 * config: `object`
 
 # state.updateBaseFee
-**Returns a Promise with the current base fee**    
+**Returns a Promise with the current base fee**
 `state.updateBaseFee(config)`
 
 * config: `object`

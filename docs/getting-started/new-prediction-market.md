@@ -16,7 +16,8 @@ const eventDescription = {
   sourceURL: "https://www.kraken.com/charts",
   resolutionDate: "2017-01-02T14:00:00.000Z",
   outcomes: ["<8$", ">=8$ <10$", ">=10$ <12$", ">=12$"],
-  fee: new BigNumber('0')
+  fee: new BigNumber('0'),
+  feeToken: config.addresses.etherToken
 }
 ```
 
@@ -41,12 +42,13 @@ gnosis.api.createEvent(
       imageURL:"",
       offChainOracles: {
         0x5dcd834cf776f47f138943e3466440009a2f2b00: {
-          fee: {          
+          fee: {
             fee: 0, // fee value in wei
             r: "76313132358411676894858570476288595214390235035601740236150786169812569527480",
             s: "6893748021101910216468924035673437049986881004666946295153989969887086026472",
             v: 27
           },
+          feeToken: '0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2',
           result: null,
           revisions: []
         }
@@ -74,7 +76,7 @@ We need two more parameters:
 ```js
 const eventOnChain = {
   kind: "discrete",
-  outcomeCount: 2,  
+  outcomeCount: 2,
   tokenAddress: '0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2',
   resolverAddress: '0x529c4cb814029b8bb32acb516ea3a4b07fdae350'
 };
@@ -82,13 +84,14 @@ const eventOnChain = {
 const feeSignatures = [
   {
     fee: 0,
+    feeToken: "0x92f1dbea03ce08225e31e95cc926ddbe0198e6f2",
     r: "76313132358411676894858570476288595214390235035601740236150786169812569527480",
     s: "6893748021101910216468924035673437049986881004666946295153989969887086026472",
     v: 27
   }
 ];
 
-gnosis.contracts.events.createOffChainEvent(
+gnosis.contracts.eventFactory.createOffChainEvent(
   eventOnChain,
   "0xcecfa7bd5a15da69166495b44386c35e1a1d70381476192e379666a2fb4d53d2", // descriptionHash
   feeSignatures,
@@ -102,7 +105,7 @@ gnosis.contracts.events.createOffChainEvent(
     /*
     ** Create event transaction is well formed but it wasn't mined yet
     ** createEvent.simulatedResult == eventHash
-    ** createEvent.txhash == transaction hash    
+    ** createEvent.txhash == transaction hash
     */
   },
   function(e){
@@ -126,23 +129,23 @@ This is the info needed:
 2. **marketFee**: percentage that the investor takes of trading actions.
 Values between **0-50%**, represented as 0-1000000.
 3. **initialFunding**: amount of tokens the investor put into the market.
-4. **marketAddress**: market contract address (e.g Markets.sol `0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847`)
-5. **makerAddress**: market maker contract address (e.g LMSR.sol `0x8695e5e79dab06fbbb05f445316fa4edb0da30f0`)
+4. **marketAddress**: market contract address (e.g DefaultMarketFactory.sol `0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847`)
+5. **makerAddress**: market maker contract address (e.g LMSRMarketMaker.sol `0x8695e5e79dab06fbbb05f445316fa4edb0da30f0`)
 
 ```js
 const market = {
   marketFee: new BigNumber('0'),
-  initialFunding: new BigNumber('1e18'), // 10 ETH  
-  makerAddress: '0x8695e5e79dab06fbbb05f445316fa4edb0da30f0' // LMSR address in main net  
+  initialFunding: new BigNumber('1e18'), // 10 ETH
+  makerAddress: config.addresses.lmsrMarketMaker
 }
 ```
 
 ```js
-gnosis.contracts.market.createMarket(
+gnosis.contracts.marketFactory.createMarket(
   market,
   eventHash, // createEvent.simulatedResult
   config,
-  '0x8e007af2b8ee9d70e578503db5a1bcdabd5ce847', // Market.sol contract
+  config.addresses.defaultMarketFactory,
   function(e, receipt){
     // Called when market is created and transaction mined
   }
