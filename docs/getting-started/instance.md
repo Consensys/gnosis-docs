@@ -104,15 +104,15 @@ gnosis.config.initialize(
 ```js
 {
   addresses: {
-    defaultMarketFactory: '0x3b1da4a1ea5ccf9ec05eeb2318abcd7d4fe07455',
-    defaultMarketMaker: '0xd3a0f8d4647342ce5c92ba989730308d69c6ca27',
-    etherToken: '0x2cdd9fe0012e973b1bc0436e67475a890e3a717a',
-    eventFactory: '0xcf18b7a386a015c1ac317f6c2368003997bb6a0c',
-    ultimateOracle: '0xecf35d9475353c79f7a756c50bbe060efe0b545f',
-    lmsrMarketMaker: '0xd3a0f8d4647342ce5c92ba989730308d69c6ca27'
+    defaultMarketFactory: '0x0daea8d631020db8450e9d469060ec4c3e463e21',
+    defaultMarketMaker: '0x86e9e6cadfdb39e067d828a4513c98b34f57c005',
+    etherToken: '0x271d50e46cf8a0681afcadaca333a9167cd862c9',
+    eventFactory: '0xace10d12db82fcb445e55f2e3104cd3ad9c298d6',
+    ultimateOracle: '0x69e06eb0ddb260c96a3e6e0f0a9b4970d6088a95',
+    lmsrMarketMaker: '0x86e9e6cadfdb39e067d828a4513c98b34f57c005'
   },
   addressFilters: {
-    oracle: '0xecf35d9475353c79f7a756c50bbe060efe0b545f'
+    oracle: '0x69e06eb0ddb260c96a3e6e0f0a9b4970d6088a95'
   },
   eventDescriptionFilters: {
     oracleAddresses: null,
@@ -120,10 +120,12 @@ gnosis.config.initialize(
     pageSize: 10
   },
   addressFiltersPostLoad: {
-    marketMakers: ['0xd3a0f8d4647342ce5c92ba989730308d69c6ca27'],
-    oracles: ['0xecf35d9475353c79f7a756c50bbe060efe0b545f'],
-    tokens: ['0x2cdd9fe0012e973b1bc0436e67475a890e3a717a'],
-  },
+    marketMakers: ['0x86e9e6cadfdb39e067d828a4513c98b34f57c005'],
+    oracles: ['0x69e06eb0ddb260c96a3e6e0f0a9b4970d6088a95'],
+    tokens: [
+      '0x271d50e46cf8a0681afcadaca333a9167cd862c9',
+      '0xbe50ad81d86710a4833c3249d9e62b93088b1241'],
+  },  
   gnosisServiceURL: 'https://beta.gnosis.pm/api/',
   ethereumNodeURL: 'https://morden.infura.io'
 }
