@@ -1,4 +1,4 @@
-![logo](https://gnosis.pm/static/landingpage/img/Gnosis-Logo_x2.b5a59844deda.png)
+![logo](https://gnosis.pm/resources/default/img/gnosis_logo.svg)
 
 [![Slack Status](https://slack.gnosis.pm/badge.svg)](http://slack.gnosis.pm)
 
