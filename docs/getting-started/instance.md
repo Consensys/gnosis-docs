@@ -99,8 +99,37 @@ gnosis.config.initialize(
   ethereumNodeURL: 'https://mainnet.infura.io'
 }
 ```
-
-# Morden configuration
+# Ropsten configuration (new testnet)
+```js
+{
+  addresses: {
+    defaultMarketFactory: '0x9b40645cbc6142cdfd5441a9ad4afde8da8ed199',
+    defaultMarketMaker: '0x9f866444e7b85005a593ac5c1aef29244a23a10e',
+    etherToken: '0x99f3931d0e1285855ac3d37648d4bb3fc705743e',
+    eventFactory: '0xae506b8af761ea320df139a8d2407ce13b9f8ecc',
+    ultimateOracle: '0xf50869608ef145e4d9770f6d21410dd44e8ea0af',
+    lmsrMarketMaker: '0x9f866444e7b85005a593ac5c1aef29244a23a10e'
+  },
+  addressFilters: {
+    oracle: '0xf50869608ef145e4d9770f6d21410dd44e8ea0af'
+  },
+  eventDescriptionFilters: {
+    oracleAddresses: null,
+    includeWhitelistedOracles: false,
+    pageSize: 10
+  },
+  addressFiltersPostLoad: {
+    marketMakers: ['0x9f866444e7b85005a593ac5c1aef29244a23a10e'],
+    oracles: ['0xf50869608ef145e4d9770f6d21410dd44e8ea0af'],
+    tokens: [
+      '0x99f3931d0e1285855ac3d37648d4bb3fc705743e',
+      '0x6fd1cff94dbe0ba14f01f39bfc2f6ee396843bad'],
+  },
+  gnosisServiceURL: 'https://beta.gnosis.pm/api/',
+  ethereumNodeURL: 'https://ropsten.infura.io'
+}
+```
+# Morden configuration (deprecated)
 ```js
 {
   addresses: {
@@ -125,7 +154,7 @@ gnosis.config.initialize(
     tokens: [
       '0x271d50e46cf8a0681afcadaca333a9167cd862c9',
       '0xbe50ad81d86710a4833c3249d9e62b93088b1241'],
-  },  
+  },
   gnosisServiceURL: 'https://beta.gnosis.pm/api/',
   ethereumNodeURL: 'https://morden.infura.io'
 }
