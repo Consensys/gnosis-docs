@@ -4,6 +4,11 @@
 npm install gnosisjs
 ```
 
+# Bower
+```
+bower install gnosisjs
+```
+
 # Build
 
 ```
@@ -12,10 +17,16 @@ $ webpack
 $ ls dist/gnosis.js
 ```
 
-# Include
+# Include javascript
 ```
 <script src="gnosis.js/dist/gnosis.js"></script>
 ```
+
+# Include nodejs
+```
+const gnosis = require('gnosisjs');
+```
+
 
 # Requirements
 
