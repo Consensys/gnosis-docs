@@ -1,4 +1,4 @@
-The most easy way to interact with trading functions is throw the market object. You can also interact with:
+The easiest way to interact with trading functions is with the market object. You can also interact with:
 
 * `Market maker`: for prices calculations with **gnosis.contracts.marketMaker** or **gnosis.marketMaker**
 * `Market contract`: with **gnosis.contracts.marketFactory** you can buyShares, sellShares, shortSellShares...
