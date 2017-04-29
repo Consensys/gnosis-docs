@@ -3,9 +3,9 @@
 ## Transactions
 A transaction is a signed request that will be included in the blockchain as
 proof of blockchain state change.
-A transaction is needed when the action has effect on the state of the blockchain,
+A transaction is needed when the action has an effect on the state of the blockchain,
 for example buy shares, sell shares, create market...
-We have two different response from a function that sends a transaction:
+We have two different responses from a function that sends a transaction:
 
 1. **Promise:** Returns the result of doing eth_call before building the transaction. With the returned Promise we can know the output of the function.
 2. **Callback:** The callback function called after the transaction is mined. We get the transaction result.

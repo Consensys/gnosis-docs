@@ -1,6 +1,7 @@
 There are two types of events:
+
 * Discrete: has a discrete number of possible outcomes
-* Ranged: has a continuous domain of pissible outcomes
+* Ranged: has a continuous domain of possible outcomes
 
 ## Discrete
 ```js
