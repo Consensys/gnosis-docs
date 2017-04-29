@@ -1,6 +1,6 @@
 ---
 site_name: Gnosis
-repo_url: https://github.com/Consensys/gnosis
+repo_url: https://github.com/Consensys/gnosis-docs
 site_description: Gnosis Documentation
 theme: readthedocs
 extra_css: [extra.css]
