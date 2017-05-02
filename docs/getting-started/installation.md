@@ -10,6 +10,11 @@ bower install gnosisjs
 ```
 
 # Build
+#### install pre-requisite package
+```
+$ npm install -g webpack
+```
+#### then
 
 ```
 $ cd gnosis.js
